@@ -23,7 +23,7 @@ def display_words(words):
     column_width = max(len(word) for word in words) + 4
     for i, word in enumerate(words, 1):
         print(f"{word:{column_width}}", end="")
-        if i % num_columns == 0:
+        if i % num_columns == 0 or i == len(words):
             print()
     time.sleep(len(words) + 10)
     clear_screen()
