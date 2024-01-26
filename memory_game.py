@@ -1,4 +1,5 @@
 import os
+import time
 from random_words import RandomWords
 
 
@@ -16,6 +17,17 @@ def generate_word_list(num_words):
     return word_list
 
 
+def display_words(words):
+    num_columns = 2
+    column_width = max(len(word) for word in words) + 4
+    for i, word in enumerate(words, 1):
+        print(f"{word:{column_width}}", end="")
+        if i % num_columns == 0:
+            print()
+    time.sleep(len(words) + 10)
+    clear_screen()
+
+
 clear_screen()
 input("Hit Enter To Start The Game...")
 clear_screen()
@@ -25,3 +37,9 @@ clear_screen()
 num_words = int(input("Enter the number of words to memorize: "))
 original_word_list = generate_word_list(num_words+10)
 words_to_memorize = original_word_list[:num_words]
+
+
+# Memorization phase
+print("Memorize the following words:\n")
+display_words(words_to_memorize)
+input("Press Enter to start the test...")
