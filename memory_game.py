@@ -61,6 +61,27 @@ def test_user(original_word_list, words_to_memorize):
     return total_score, answer_list
 
 
+def display_words_to_memorize(words):
+    print("Actual Words:\n")
+    num_columns = 2
+    column_width = max(len(word) for word in words) + 4
+    for i, word in enumerate(words, 1):
+        print(f"{word:{column_width}}", end="")
+        if i % num_columns == 0:
+            print()
+
+
+def display_answers_list(data):
+    print("\nYour Answers:\n")
+    column_width = max(len(word) for word, _, _ in data) + 2
+    for word, answer, mark in data:
+        print(f"{word:{column_width}} {answer} {mark}")
+
+    
+def display_total_score(total_score, num_words):
+    print(f"Total Score: {total_score}/{num_words}")
+
+
 clear_screen()
 input("Hit Enter To Start The Game...")
 clear_screen()
@@ -80,3 +101,9 @@ input("Press Enter to start the test...")
 
 # Testing phase
 total_score, answer_list = test_user(original_word_list, words_to_memorize)
+
+
+# Display memorized words, user answers, and total score
+display_words_to_memorize(words_to_memorize)
+display_answers_list(answer_list)
+display_total_score(total_score, num_words)
