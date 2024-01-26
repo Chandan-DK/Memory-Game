@@ -53,7 +53,6 @@ def test_user(original_word_list, words_to_memorize):
     answer_list = []
     original_word_list = original_word_list[:len(original_word_list)-10]
     for word in original_word_list:
-        print(f"Is '{word}' in the original word list?")
         user_input = get_user_input(word)
         score = get_score(user_input, word, words_to_memorize)
         total_score += score
