@@ -1,4 +1,5 @@
 import os
+import random
 import time
 from random_words import RandomWords
 
@@ -28,6 +29,38 @@ def display_words(words):
     clear_screen()
 
 
+def get_user_input(word):
+    while True:
+        user_input = input(f"Is '{word}' in the original word list? (y/n): ").lower()
+        if user_input == "y" or user_input == "n":
+            return user_input
+
+
+def get_score(user_input, word, words_to_memorize):
+    return (
+        1
+        if (
+            (user_input == "y" and word in words_to_memorize)
+            or (user_input == "n" and word not in words_to_memorize)
+        )
+        else 0
+    )
+
+
+def test_user(original_word_list, words_to_memorize):
+    total_score = 0
+    random.shuffle(original_word_list)
+    answer_list = []
+    for word in original_word_list:
+        print(f"Is '{word}' in the original word list?")
+        user_input = get_user_input(word)
+        score = get_score(user_input, word, words_to_memorize)
+        total_score += score
+        answer_list.append((word, user_input, "✅" if score == 1 else "❌"))
+        clear_screen()
+    return total_score, answer_list
+
+
 clear_screen()
 input("Hit Enter To Start The Game...")
 clear_screen()
@@ -43,3 +76,7 @@ words_to_memorize = original_word_list[:num_words]
 print("Memorize the following words:\n")
 display_words(words_to_memorize)
 input("Press Enter to start the test...")
+
+
+# Testing phase
+total_score, answer_list = test_user(original_word_list, words_to_memorize)
