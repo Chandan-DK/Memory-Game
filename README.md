@@ -10,6 +10,12 @@ This memory game is especially useful if you are practicing memory palace techni
 - For each word, enter (y/n) to indicate whether it was in the original list or not.  
 - View your total score at the end with a nice result sheet
 
+## Screenshots
+
+![image_1](https://github.com/Chandan-DK/Memory-Game/assets/103727912/fca418f8-4376-473d-ba42-e08cc95837fd)
+![image_2](https://github.com/Chandan-DK/Memory-Game/assets/103727912/a1b20a2e-6d2d-4a9c-8168-922ec9fa21b7)
+
+
 ## Installation
 
 1. Clone the repository:
